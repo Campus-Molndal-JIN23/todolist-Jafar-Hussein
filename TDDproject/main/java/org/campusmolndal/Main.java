@@ -1,5 +1,9 @@
 package org.campusmolndal;
 
+import org.campusmolndal.Database.MongoDb;
+import org.campusmolndal.Database.MongoDbFacade;
+import org.campusmolndal.TodoList.Todo;
+
 /*
  * ----------------------------------------------------------------------------
  * Copyright (c) 2019-2023 Marcus Medina, Campus Mölndal
@@ -11,9 +15,9 @@ package org.campusmolndal;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Todo todo = new Todo(1, "Sample Todo", false);
+        MongoDbFacade mongoDb = new MongoDbFacade();
+        mongoDb.createTodoItem(todo);
 
         }
     }

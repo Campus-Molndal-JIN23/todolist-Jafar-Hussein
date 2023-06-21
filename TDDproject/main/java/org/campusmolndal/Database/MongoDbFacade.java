@@ -1,4 +1,4 @@
-package org.campusmolndal.Databas;
+package org.campusmolndal.Database;
 
 import org.campusmolndal.TodoList.Todo;
 
@@ -6,14 +6,16 @@ import java.util.List;
 
 public class MongoDbFacade {
     public MongoDb mongoDb;
-public MongoDbFacade() {
-    this.mongoDb = new MongoDb();
-}
+
+    public MongoDbFacade() {
+        this.mongoDb = new MongoDb();
+    }
+
     public void createTodoItem(Todo todo) {
         mongoDb.createTodoItem(todo);
     }
 
-    public Todo getTodoItemById(int id) {
+    public Todo getTodoItemById(Integer id) {
         return mongoDb.getTodoItemById(id);
     }
 
@@ -21,15 +23,15 @@ public MongoDbFacade() {
         return mongoDb.getAllTodoItems();
     }
 
-    public void updateTodoDoneStatus(int id, boolean done) {
+    public void updateTodoDoneStatus(Integer id, boolean done) {
         mongoDb.updateTodoDoneStatus(id, done);
     }
 
-    public void deleteTodoItemById(int id) {
+    public void deleteTodoItemById(Integer id) {
         mongoDb.deleteTodoItemById(id);
     }
 
-    public void viewTodoItemById(int id) {
+    public void viewTodoItemById(Integer id) {
         mongoDb.viewTodoItemById(id);
     }
 }

@@ -1,7 +1,7 @@
 package DatabasTest;
 
-import org.campusmolndal.Databas.MongoDb;
-import org.campusmolndal.Databas.MongoDbFacade;
+import org.campusmolndal.Database.MongoDb;
+import org.campusmolndal.Database.MongoDbFacade;
 import org.campusmolndal.TodoList.Todo;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

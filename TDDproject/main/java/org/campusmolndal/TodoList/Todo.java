@@ -2,6 +2,8 @@ package org.campusmolndal.TodoList;
 
 import org.bson.Document;
 
+import java.util.Objects;
+
 public class Todo {
     private Integer id;
     private String title;
@@ -14,27 +16,45 @@ public class Todo {
     }
 
     public Integer getId() {
-        return 0;
+        return this.id;
+    }
+    public void setId(Integer userChoiceId) {
+        if (userChoiceId <= 0) {
+            throw new IllegalArgumentException("ID must be a positive non-zero value");
+        }
+        this.id = userChoiceId;
     }
 
+
+
     public String getTitle() {
-        return "";
+        return this.title;
     }
-    public void setTitle(String title) {
+    public void setTitle(String userTitleChoice) {
+        Objects.requireNonNull(userTitleChoice, "Title cannot be null");
+        if (userTitleChoice.isBlank()) {
+            throw new IllegalArgumentException("Title cannot be empty");
+        }
+        this.title = userTitleChoice;
     }
+
     public Boolean isDone() {
-        return null;
+        return this.isDone;
     }
     public void setTaskStatus(Boolean isDone) {
+        if (null == isDone) {
+            throw new IllegalArgumentException("isDone cannot be null");
+        }
+        this.isDone = isDone;
     }
    public Document toDoc() {
-       return new Document("id", id)
-               .append("title", title)
-               .append("isDone", isDone);
+       return new Document("id", this.id)
+               .append("title", this.title)
+               .append("isDone", this.isDone);
     }
 
     public static Todo fromDoc(Document doc) {
-        if (doc == null) {
+        if (null == doc) {
             return new Todo(0, "", false);
         }
         return new Todo(
