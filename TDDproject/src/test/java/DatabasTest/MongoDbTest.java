@@ -22,11 +22,5 @@ public class MongoDbTest {
     @Mock
    private MongoCollection<Document> mockCollection;
     private MongoDb sut;
-    @BeforeEach
-    public void setUp(){
-        MockitoAnnotations.openMocks(this);
-        sut= new MongoDb();
-        sut.mongoClient = mockClient;
-        sut.todoCollection = mockCollection;
-    }
+
 }
