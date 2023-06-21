@@ -45,9 +45,14 @@ public class MongoDb {
     public List<Todo> GetAllTodos() {
         return null;
     }
-    public void updateTodoById() {
+
+    public void updateTodoTaskById(String task , int id) {
     }
-    public void RemoveTodoById() {
+    public void updateTodoTaskStatusById(int id) {
+    }
+    public void RemoveTodoById(int id) {
+    }
+    public void RemoveAllTodos() {
     }
 
 }
