@@ -2,6 +2,7 @@ package org.campusmolndal;
 
 import org.campusmolndal.Database.MongoDb;
 import org.campusmolndal.Database.MongoDbFacade;
+import org.campusmolndal.InputHanterare.InputHandler;
 import org.campusmolndal.TodoList.Todo;
 
 /*
@@ -15,9 +16,9 @@ import org.campusmolndal.TodoList.Todo;
 // then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
-        Todo todo = new Todo(1, "Sample Todo", false);
-        MongoDbFacade mongoDb = new MongoDbFacade();
-        mongoDb.createTodoItem(todo);
+
+
+
 
         }
     }
