@@ -37,9 +37,6 @@ public class Menu {
         int choice = -1; //variabel som används för att välja menyalternativ
 
         while (choice != 0) { //while loop som körs så länge choice inte är 0
-            try {
-
-
                 displayMenu();
                 System.out.print("Välj ett alternativ: ");
                 choice = inputHandler.getIntInput();
@@ -54,9 +51,7 @@ public class Menu {
                     default -> System.out.println("Ogiltigt val. Försök igen.");
                 }
                 System.out.println();
-            } catch (RuntimeException e) {
-                System.out.println("Error: " + e.getMessage());
-            }
+
         }
 
         inputHandler.closeScanner();
@@ -116,7 +111,7 @@ public class Menu {
         System.out.println("Task uppdaterat.");
     }
 
-    private void deleteTodoItem() { //metod som tar bort en task
+    private void deleteTodoItem() {
         viewAllTodoItems();
         System.out.print("Ange task ID: ");
         int id = inputHandler.getIntInput();
