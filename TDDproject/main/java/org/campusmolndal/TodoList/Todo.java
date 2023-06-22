@@ -4,6 +4,7 @@ import org.bson.Document;
 
 import java.util.Objects;
 
+
 public class Todo {
     private Integer id;
     private String title;
@@ -38,8 +39,8 @@ public class Todo {
         this.title = userTitleChoice;
     }
 
-    public Boolean isDone() {
-        return this.isDone;
+    public Boolean getTaskStatus() {
+        return isDone;
     }
     public void setTaskStatus(Boolean isDone) {
         if (null == isDone) {

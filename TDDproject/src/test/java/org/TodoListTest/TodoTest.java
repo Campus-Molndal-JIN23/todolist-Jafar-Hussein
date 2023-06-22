@@ -63,7 +63,7 @@ public class TodoTest {
         Boolean isDone = false;
         Todo todo = new Todo(1, "Sample Title", isDone);
 
-        assertEquals(isDone, todo.isDone());
+        assertEquals(isDone, todo.getTaskStatus());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class TodoTest {
 
         todo.setTaskStatus(newStatus);
 
-       assertEquals(newStatus, todo.isDone());
+       assertEquals(newStatus, todo.getTaskStatus());
     }
 
     @Test
@@ -103,6 +103,6 @@ public class TodoTest {
 
         assertEquals(id, todo.getId());
         assertEquals(title, todo.getTitle());
-        assertEquals(isDone, todo.isDone());
+        assertEquals(isDone, todo.getTaskStatus());
     }
 }

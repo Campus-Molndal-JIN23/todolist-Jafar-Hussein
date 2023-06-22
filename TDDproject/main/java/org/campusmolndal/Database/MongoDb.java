@@ -51,7 +51,6 @@ public class MongoDb {
             while (cursor.hasNext()) {
                 Document document = cursor.next();
                 Todo todo = Todo.fromDoc(document);
-                System.out.println("Todo: " + todo); // Print the converted Todo object using the overridden toString() method
                 todos.add(todo);
             }
         }

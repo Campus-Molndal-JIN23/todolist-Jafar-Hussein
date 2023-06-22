@@ -16,8 +16,9 @@ public class InputHandler {
                 input = scanner.nextInt();
                 isValidNumber = false;
                 scanner.nextLine();
-            } catch (Exception e) {
+            } catch (RuntimeException e) {
                 System.out.println("Invalid input, please try again.");
+                scanner.nextLine();
             }
         }
         return input;
