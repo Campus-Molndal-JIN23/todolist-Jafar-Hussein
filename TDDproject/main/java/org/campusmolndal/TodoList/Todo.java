@@ -63,4 +63,10 @@ public class Todo {
                 doc.getBoolean("isDone")
         );
     }
+    @Override
+    public String toString() {
+        return "Todo ID: " + id +
+                "\nTitle: " + title +
+                "\nDone: " + isDone;
+    }
 }

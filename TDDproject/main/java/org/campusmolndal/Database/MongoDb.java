@@ -14,9 +14,9 @@ public class MongoDb {
     private static final String connString = "mongodb://localhost:27017";
 
     public MongoDb() {
-        MongoClient mongoClient = MongoClients.create(connString);
+        MongoClient mongoClient = MongoClients.create(MongoDb.connString);
         MongoDatabase dbName = mongoClient.getDatabase("Todo");
-        collection = dbName.getCollection(collectionName);
+        collection = dbName.getCollection(MongoDb.collectionName);
     }
 
     public void createTodoItem(Todo todo) {
@@ -26,7 +26,7 @@ public class MongoDb {
 
     public Todo getTodoItemById(Integer id) {
         Bson filter = new Document("id", id);
-        FindIterable<Document> documents = collection.find(filter);
+        FindIterable<Document> documents = this.collection.find(filter);
         Document document = documents.first();
 
         if (null != document) {
@@ -46,10 +46,12 @@ public class MongoDb {
     public List<Todo> getAllTodoItems() {
         List<Todo> todos = new ArrayList<>();
 
-        try (MongoCursor<Document> cursor = collection.find().iterator()) {
+        FindIterable<Document> documents = this.collection.find();
+        try (MongoCursor<Document> cursor = documents.iterator()) {
             while (cursor.hasNext()) {
                 Document document = cursor.next();
                 Todo todo = Todo.fromDoc(document);
+                System.out.println("Todo: " + todo); // Print the converted Todo object using the overridden toString() method
                 todos.add(todo);
             }
         }
@@ -57,9 +59,10 @@ public class MongoDb {
         return todos;
     }
 
+
     public void updateTodoDoneStatus(Integer id, boolean isDone) {
         Bson filter = new Document("id", id);
-        Document update = new Document("$set", new Document("isDone", isDone));
+        Bson update = new Document("$set", new Document("isDone", isDone));
         collection.updateOne(filter, update);
     }
 
@@ -70,19 +73,15 @@ public class MongoDb {
 
     public void viewTodoItemById(Integer id) {
         Bson filter = new Document("id", id);
-        FindIterable<Document> documents = collection.find(filter);
+        FindIterable<Document> documents = this.collection.find(filter);
         Document document = documents.first();
 
         if (null != document) {
             Todo todo = Todo.fromDoc(document);
-            Integer id1 = todo.getId();
-            System.out.println("Todo ID: " + id1);
-            String title = todo.getTitle();
-            System.out.println("Title: " + title);
-            Boolean done = todo.isDone();
-            System.out.println("Done: " + done);
+            System.out.println(todo); // Print the Todo object using the overridden toString() method
         } else {
             System.out.println("Todo item not found.");
         }
     }
+
 }
