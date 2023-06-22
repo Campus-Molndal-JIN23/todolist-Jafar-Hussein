@@ -44,7 +44,7 @@ public class Menu {
                 case 1 -> createTodoItem();
                 case 2 -> viewTodoItemById();
                 case 3 -> viewAllTodoItems();
-                case 4 -> updateTodoDoneStatus();
+                case 4 ->  updateTodoTask();
                 case 5 -> deleteTodoItem();
                 case 0 -> System.out.println("Avslutar...");
                 default -> System.out.println("Ogiltigt val. Försök igen.");
@@ -96,14 +96,16 @@ public class Menu {
         }
     }
 
-    private void updateTodoDoneStatus() {
+    private void updateTodoTask() {
         viewAllTodoItems();
         System.out.print("Ange task ID: ");
         int id = inputHandler.getIntInput();
+        System.out.print("Ange ny task Titel: ");
+        String newTitle = inputHandler.getStringInput();
         System.out.print("Är task Klart? (true/false): ");
         boolean isDone = inputHandler.getTaskStatusInput();
 
-        dbFacade.updateTodoDoneStatus(id, isDone);
+        dbFacade.updateTodo(id, newTitle, isDone);
         System.out.println("Task uppdaterat.");
     }
 

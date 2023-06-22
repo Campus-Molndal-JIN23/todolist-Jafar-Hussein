@@ -15,7 +15,7 @@ public class MongoDb {
 
     public MongoDb() {
         MongoClient mongoClient = MongoClients.create(MongoDb.connString);
-        MongoDatabase dbName = mongoClient.getDatabase("Todo");
+        MongoDatabase dbName = mongoClient.getDatabase("TodoList");
         collection = dbName.getCollection(MongoDb.collectionName);
     }
 
@@ -31,11 +31,11 @@ public class MongoDb {
 
         if (null != document) {
             Integer id1 = document.getInteger("id");
-            String title = document.getString("title");
+            String text = document.getString("text");
             Boolean isDone = document.getBoolean("isDone");
             return new Todo(
                     id1,
-                    title,
+                    text,
                     isDone
             );
         }
@@ -59,11 +59,12 @@ public class MongoDb {
     }
 
 
-    public void updateTodoDoneStatus(Integer id, boolean isDone) {
+    public void updateTodo(Integer id, String newText, boolean isDone) {
         Bson filter = new Document("id", id);
-        Bson update = new Document("$set", new Document("isDone", isDone));
+        Bson update = new Document("$set", new Document("text", newText).append("isDone", isDone));
         collection.updateOne(filter, update);
     }
+
 
     public void deleteTodoItemById(Integer id) {
         Bson filter = new Document("id", id);

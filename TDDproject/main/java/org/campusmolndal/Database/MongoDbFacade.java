@@ -23,8 +23,8 @@ public class MongoDbFacade {
         return mongoDb.getAllTodoItems();
     }
 
-    public void updateTodoDoneStatus(Integer id, boolean done) {
-        mongoDb.updateTodoDoneStatus(id, done);
+    public void updateTodo(Integer id, String newTitle, boolean isDone) {
+        mongoDb.updateTodo(id,newTitle, isDone);
     }
 
     public void deleteTodoItemById(Integer id) {

@@ -7,12 +7,12 @@ import java.util.Objects;
 
 public class Todo {
     private Integer id;
-    private String title;
+    private String text;
     private Boolean isDone;
 
-    public Todo(Integer id, String title,  Boolean isDone) {
+    public Todo(Integer id, String text,  Boolean isDone) {
         this.id = id;
-        this.title = title;
+        this.text = text;
         this.isDone = isDone;
     }
 
@@ -28,15 +28,15 @@ public class Todo {
 
 
 
-    public String getTitle() {
-        return this.title;
+    public String getText() {
+        return this.text;
     }
     public void setTitle(String userTitleChoice) {
         Objects.requireNonNull(userTitleChoice, "Title cannot be null");
         if (userTitleChoice.isBlank()) {
             throw new IllegalArgumentException("Title cannot be empty");
         }
-        this.title = userTitleChoice;
+        this.text = userTitleChoice;
     }
 
     public Boolean getTaskStatus() {
@@ -50,8 +50,8 @@ public class Todo {
     }
    public Document toDoc() {
        return new Document("id", this.id)
-               .append("title", this.title)
-               .append("isDone", this.isDone);
+               .append("text", this.text)
+               .append("done", this.isDone);
     }
 
     public static Todo fromDoc(Document doc) {
@@ -60,14 +60,14 @@ public class Todo {
         }
         return new Todo(
                 doc.getInteger("id"),
-                doc.getString("title"),
-                doc.getBoolean("isDone")
+                doc.getString("text"),
+                doc.getBoolean("done")
         );
     }
     @Override
     public String toString() {
         return "Todo ID: " + id +
-                "\nTitle: " + title +
+                "\nText: " + text +
                 "\nDone: " + isDone;
     }
 }

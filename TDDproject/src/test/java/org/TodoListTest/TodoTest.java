@@ -45,7 +45,7 @@ public class TodoTest {
         String title = "Sample Title";
         Todo todo = new Todo(1, title, false);
 
-        assertEquals(title, todo.getTitle());
+        assertEquals(title, todo.getText());
     }
 
     @Test
@@ -55,7 +55,7 @@ public class TodoTest {
 
         todo.setTitle(newTitle);
 
-       assertEquals(newTitle, todo.getTitle());
+       assertEquals(newTitle, todo.getText());
     }
 
     @Test
@@ -102,7 +102,7 @@ public class TodoTest {
         Todo todo = Todo.fromDoc(document);
 
         assertEquals(id, todo.getId());
-        assertEquals(title, todo.getTitle());
+        assertEquals(title, todo.getText());
         assertEquals(isDone, todo.getTaskStatus());
     }
 }

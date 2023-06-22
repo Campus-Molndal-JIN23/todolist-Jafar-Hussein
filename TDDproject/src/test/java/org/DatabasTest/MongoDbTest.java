@@ -64,13 +64,14 @@ public class MongoDbTest {
     }
 
     @Test
-    public void testUpdateTodoDoneStatus() {
+    public void testUpdateTodo() {
         int id = 1;
-        boolean done = true;
+        String newTitle = "Nytt task Titel";
+        boolean isDone = true;
 
-        mongoDbFacade.updateTodoDoneStatus(id, done);
+        mongoDbFacade.updateTodo(id, newTitle, isDone);
 
-        verify(mongoDb, times(1)).updateTodoDoneStatus(id, done);
+        verify(mongoDb, times(1)).updateTodo(id, newTitle, isDone);
     }
 
     @Test
