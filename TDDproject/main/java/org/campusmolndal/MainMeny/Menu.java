@@ -8,7 +8,7 @@ import java.util.List;
 
 public class Menu {
     private final MongoDbFacade dbFacade;
-    private final InputHandler inputHandler;
+    public InputHandler inputHandler;
 
     public Menu() {
         //instansiering av objekt
