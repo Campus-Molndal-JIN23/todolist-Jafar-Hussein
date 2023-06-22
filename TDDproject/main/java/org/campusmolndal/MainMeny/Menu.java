@@ -11,12 +11,13 @@ public class Menu {
     private final InputHandler inputHandler;
 
     public Menu() {
+        //instansiering av objekt
         this.dbFacade = new MongoDbFacade();
         this.inputHandler = new InputHandler();
     }
 
-    private void displayMenu() {
-        String[] menuOptions = {
+    private void displayMenu() { //skriver ut menyn
+        String[] menuOptions = { //skapar en array med menyalternativ
                 "1. Skapa Task",
                 "2. Visa Task via ID",
                 "3. Visa alla task",
@@ -26,36 +27,42 @@ public class Menu {
         };
 
         System.out.println("==== ATT GÖRA-LISTA MENY ====");
-        for (String option : menuOptions) {
+        for (String option : menuOptions) { //for loop som skriver ut menyalternativen
             System.out.println(option);
         }
         System.out.println("=============================");
     }
 
-    public void run() {
-        int choice = -1;
+    public void run() { //metod som körs när programmet startas
+        int choice = -1; //variabel som används för att välja menyalternativ
 
-        while (choice != 0) {
-            displayMenu();
-            System.out.print("Välj ett alternativ: ");
-            choice = inputHandler.getIntInput();
+        while (choice != 0) { //while loop som körs så länge choice inte är 0
+            try {
 
-            switch (choice) {
-                case 1 -> createTodoItem();
-                case 2 -> viewTodoItemById();
-                case 3 -> viewAllTodoItems();
-                case 4 ->  updateTodoTask();
-                case 5 -> deleteTodoItem();
-                case 0 -> System.out.println("Avslutar...");
-                default -> System.out.println("Ogiltigt val. Försök igen.");
+
+                displayMenu();
+                System.out.print("Välj ett alternativ: ");
+                choice = inputHandler.getIntInput();
+
+                switch (choice) {
+                    case 1 -> createTodoItem();
+                    case 2 -> viewTodoItemById();
+                    case 3 -> viewAllTodoItems();
+                    case 4 -> updateTodoTask();
+                    case 5 -> deleteTodoItem();
+                    case 0 -> System.out.println("Avslutar...");
+                    default -> System.out.println("Ogiltigt val. Försök igen.");
+                }
+                System.out.println();
+            } catch (RuntimeException e) {
+                System.out.println("Error: " + e.getMessage());
             }
-            System.out.println();
         }
 
         inputHandler.closeScanner();
     }
 
-    private void createTodoItem() {
+    private void createTodoItem() { //metod som skapar en ny task
         System.out.print("Ange task ID: ");
         int id = inputHandler.getIntInput();
         System.out.print("Ange task Titel: ");
@@ -69,7 +76,7 @@ public class Menu {
         System.out.println("task skapat.");
     }
 
-    private void viewTodoItemById() {
+    private void viewTodoItemById() { //metod som visar en task via ID
         System.out.print("Ange task ID: ");
         int id = inputHandler.getIntInput();
 
@@ -83,7 +90,7 @@ public class Menu {
         }
     }
 
-    private void viewAllTodoItems() {
+    private void viewAllTodoItems() { //metod som visar alla task
         System.out.println("Alla task:");
         List<Todo> todos = dbFacade.getAllTodoItems();
 
@@ -96,7 +103,7 @@ public class Menu {
         }
     }
 
-    private void updateTodoTask() {
+    private void updateTodoTask() { //metod som uppdaterar en task
         viewAllTodoItems();
         System.out.print("Ange task ID: ");
         int id = inputHandler.getIntInput();
@@ -109,7 +116,7 @@ public class Menu {
         System.out.println("Task uppdaterat.");
     }
 
-    private void deleteTodoItem() {
+    private void deleteTodoItem() { //metod som tar bort en task
         viewAllTodoItems();
         System.out.print("Ange task ID: ");
         int id = inputHandler.getIntInput();

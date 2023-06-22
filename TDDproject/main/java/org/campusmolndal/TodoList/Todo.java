@@ -4,7 +4,6 @@ import org.bson.Document;
 
 import java.util.Objects;
 
-
 public class Todo {
     private Integer id;
     private String text;
@@ -16,9 +15,12 @@ public class Todo {
         this.isDone = isDone;
     }
 
+    // Hämtar ID för uppgiften
     public Integer getId() {
         return this.id;
     }
+
+    // Sätter ID för uppgiften
     public void setId(Integer userChoiceId) {
         if (userChoiceId <= 0) {
             throw new IllegalArgumentException("ID must be a positive non-zero value");
@@ -26,11 +28,12 @@ public class Todo {
         this.id = userChoiceId;
     }
 
-
-
+    // Hämtar texten för uppgiften
     public String getText() {
         return this.text;
     }
+
+    // Sätter titeln för uppgiften
     public void setTitle(String userTitleChoice) {
         Objects.requireNonNull(userTitleChoice, "Title cannot be null");
         if (userTitleChoice.isBlank()) {
@@ -39,21 +42,27 @@ public class Todo {
         this.text = userTitleChoice;
     }
 
+    // Hämtar statusen för uppgiften
     public Boolean getTaskStatus() {
         return isDone;
     }
+
+    // Sätter statusen för uppgiften
     public void setTaskStatus(Boolean isDone) {
         if (null == isDone) {
             throw new IllegalArgumentException("isDone cannot be null");
         }
         this.isDone = isDone;
     }
-   public Document toDoc() {
-       return new Document("id", this.id)
-               .append("text", this.text)
-               .append("done", this.isDone);
+
+    // Konverterar Todo-objektet till en Document
+    public Document toDoc() {
+        return new Document("id", this.id)
+                .append("text", this.text)
+                .append("done", this.isDone);
     }
 
+    // Skapar ett Todo-objekt från en Document
     public static Todo fromDoc(Document doc) {
         if (null == doc) {
             return new Todo(0, "", false);
@@ -64,6 +73,8 @@ public class Todo {
                 doc.getBoolean("done")
         );
     }
+
+    // Returnerar en strängrepresentation av Todo-objektet
     @Override
     public String toString() {
         return "Todo ID: " + id +

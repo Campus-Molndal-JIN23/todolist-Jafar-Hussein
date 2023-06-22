@@ -9,7 +9,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class TodoTest {
     private Todo sut;
-     @BeforeEach
+
+    @BeforeEach
     public void setUp() {
         sut = new Todo(1, "Sample Title", false);
     }
@@ -19,32 +20,35 @@ public class TodoTest {
         Integer id = 2;
         Todo todo = new Todo(id, "Sample Title", false);
 
-       assertEquals(id, todo.getId());
+        // Kontrollerar att getId-metoden returnerar rätt id-värde
+        assertEquals(id, todo.getId());
     }
 
     @Test
     public void testSetId() {
         Integer newId = 2;
 
+        // Sätter ett nytt id med setId-metoden och kontrollerar att det nya id-värdet är korrekt
         sut.setId(newId);
 
         assertEquals(newId, sut.getId());
     }
-
 
     @Test
     public void testSetIdWrongInput() {
         Integer id = -1;
         sut = new Todo(1, "Sample Title", false);
 
+        // Kontrollerar att IllegalArgumentException kastas om setId-metoden anropas med ogiltigt id-värde
         assertThrows(IllegalArgumentException.class, () -> sut.setId(id));
-
     }
+
     @Test
     public void testGetTitle() {
         String title = "Sample Title";
         Todo todo = new Todo(1, title, false);
 
+        // Kontrollerar att getText-metoden returnerar rätt titel
         assertEquals(title, todo.getText());
     }
 
@@ -53,9 +57,10 @@ public class TodoTest {
         String newTitle = "New Title";
         Todo todo = new Todo(1, "Sample Title", false);
 
+        // Sätter en ny titel med setTitle-metoden och kontrollerar att den nya titeln är korrekt
         todo.setTitle(newTitle);
 
-       assertEquals(newTitle, todo.getText());
+        assertEquals(newTitle, todo.getText());
     }
 
     @Test
@@ -63,6 +68,7 @@ public class TodoTest {
         Boolean isDone = false;
         Todo todo = new Todo(1, "Sample Title", isDone);
 
+        // Kontrollerar att getTaskStatus-metoden returnerar rätt status för att avsluta uppgiften
         assertEquals(isDone, todo.getTaskStatus());
     }
 
@@ -71,9 +77,10 @@ public class TodoTest {
         Boolean newStatus = true;
         Todo todo = new Todo(1, "Sample Title", false);
 
+        // Sätter en ny status för att avsluta uppgiften med setTaskStatus-metoden och kontrollerar att den nya statusen är korrekt
         todo.setTaskStatus(newStatus);
 
-       assertEquals(newStatus, todo.getTaskStatus());
+        assertEquals(newStatus, todo.getTaskStatus());
     }
 
     @Test
@@ -83,11 +90,12 @@ public class TodoTest {
         Boolean isDone = false;
         Todo todo = new Todo(id, title, isDone);
 
+        // Kontrollerar att toDoc-metoden returnerar en korrekt Document-objekt med rätt fältvärden
         Document document = todo.toDoc();
 
         assertEquals(id, document.getInteger("id"));
-       assertEquals(title, document.getString("title"));
-       assertEquals(isDone, document.getBoolean("isDone"));
+        assertEquals(title, document.getString("title"));
+        assertEquals(isDone, document.getBoolean("isDone"));
     }
 
     @Test
@@ -99,6 +107,7 @@ public class TodoTest {
                 .append("title", title)
                 .append("isDone", isDone);
 
+        // Kontrollerar att fromDoc-metoden skapar en ny Todo-objekt med rätt värden från det givna Document-objektet
         Todo todo = Todo.fromDoc(document);
 
         assertEquals(id, todo.getId());

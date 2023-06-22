@@ -9,23 +9,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MongoDb {
+
     private final MongoCollection<Document> collection;
     private static final String collectionName = "todos";
     private static final String connString = "mongodb://localhost:27017";
 
     public MongoDb() {
+        //kopplar upp mot databasen
         MongoClient mongoClient = MongoClients.create(MongoDb.connString);
         MongoDatabase dbName = mongoClient.getDatabase("TodoList");
         collection = dbName.getCollection(MongoDb.collectionName);
     }
 
-    public void createTodoItem(Todo todo) {
+    public void createTodoItem(Todo todo) { //skapar ett nytt todo objekt
         Document document = todo.toDoc();
         collection.insertOne(document);
     }
 
-    public Todo getTodoItemById(Integer id) {
-        Bson filter = new Document("id", id);
+    public Todo getTodoItemById(Integer id) { //hämtar ett todo objekt med ett specifikt id
+        Document filter = new Document("id", id);
         FindIterable<Document> documents = this.collection.find(filter);
         Document document = documents.first();
 
@@ -43,7 +45,7 @@ public class MongoDb {
         return null;
     }
 
-    public List<Todo> getAllTodoItems() {
+    public List<Todo> getAllTodoItems() { //hämtar alla todo objekt
         List<Todo> todos = new ArrayList<>();
 
         FindIterable<Document> documents = this.collection.find();
@@ -59,26 +61,26 @@ public class MongoDb {
     }
 
 
-    public void updateTodo(Integer id, String newText, boolean isDone) {
-        Bson filter = new Document("id", id);
-        Bson update = new Document("$set", new Document("text", newText).append("isDone", isDone));
+    public void updateTodo(Integer id, String newText, boolean isDone) { //uppdaterar ett todo objekt, dvs ändrar texten och om den är klar eller inte
+        Document filter = new Document("id", id);
+        Document update = new Document("$set", new Document("text", newText).append("isDone", isDone));
         collection.updateOne(filter, update);
     }
 
 
-    public void deleteTodoItemById(Integer id) {
-        Bson filter = new Document("id", id);
+    public void deleteTodoItemById(Integer id) { //tar bort ett todo objekt med ett specifikt id
+        Document filter = new Document("id", id);
         collection.deleteOne(filter);
     }
 
-    public void viewTodoItemById(Integer id) {
-        Bson filter = new Document("id", id);
+    public void viewTodoItemById(Integer id) { //skriver ut ett todo objekt med ett specifikt id
+        Document filter = new Document("id", id);
         FindIterable<Document> documents = this.collection.find(filter);
         Document document = documents.first();
 
         if (null != document) {
             Todo todo = Todo.fromDoc(document);
-            System.out.println(todo); // Print the Todo object using the overridden toString() method
+            System.out.println(todo); // skriver ut todo objektet
         } else {
             System.out.println("Todo item not found.");
         }
