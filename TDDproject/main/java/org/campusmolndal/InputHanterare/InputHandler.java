@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class InputHandler {
     private final Scanner scanner;
 
-    public  InputHandler() {
+    public InputHandler() {
         this.scanner = new Scanner(System.in);
     }
+
     public int getIntInput() {
         int input = 0;
         boolean isValidNumber = true;
@@ -17,7 +18,7 @@ public class InputHandler {
                 isValidNumber = false;
                 scanner.nextLine();
             } catch (RuntimeException e) {
-                System.out.println("Invalid input, please try again.");
+                System.out.println("Ogiltigt värde, försök igen.");
                 scanner.nextLine();
             }
         }
@@ -29,7 +30,19 @@ public class InputHandler {
     }
 
     public boolean getTaskStatusInput() {
-        return scanner.nextBoolean();
+        boolean isValidStatus = true;
+        boolean status = false;
+        while (isValidStatus) {
+            try {
+                status = scanner.nextBoolean();
+                isValidStatus = false;
+                scanner.nextLine();
+            } catch (RuntimeException e) {
+                System.out.println("Ogiltig status, ange true eller false.");
+                scanner.nextLine();
+            }
+        }
+        return status;
     }
 
     public void closeScanner() {
