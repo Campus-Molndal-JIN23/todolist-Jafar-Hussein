@@ -17,11 +17,11 @@ public class MongoDbFacade {
 
     public Todo getTodoItemById(Integer id) {//hämtar ett todo objekt med ett specifikt id
         return mongoDb.getTodoItemById(id);
-    }
+    } //hämtar ett todo objekt med ett specifikt id
 
     public List<Todo> getAllTodoItems() { //hämtar alla todo objekt
         return mongoDb.getAllTodoItems();
-    }
+    } //hämtar alla todo objekt
 
     public void updateTodoStatus(Integer id,  boolean isDone) { //uppdaterar ett todo objekt
         mongoDb.updateTodoStatus(id, isDone);

@@ -34,12 +34,20 @@ Först så började jag med att planera därefter började jag skapa alla klasse
 och inte bara skapar en och en. Sedan började jag med att skapa enkla klasserna först, först skapades metoderna men inget logisk kod fanns inne
 i metoderna på grund av att jag skulle skapa unit tester först.
 
-### Kod
+Jag skapade grundläggande klasser som jag behövde för att kunna skapa en todo lista och funktionerna som behövdes,
+därefter så bestämde om vissa klasser behövde en t.ex. Facade klass för att kunna göra det enklare för användaren att använda programmet och
+förstå vad funktionerna gör. För att hjälpa mig göra det enkel för en användare att
+förstå vad dessa funktioner gör så gav jag dem namn som är lätt att förstå.
+
+Innan logiken gick in i metoden så behövdes dem testas först, jag skapade unit tester för att testa om metoderna fungerar som de ska och använde
+mig av mockito för externa klasser som t.ex. Databasen. När jag blev klar med unit testerna så började jag med att skapa logiken i metoderna.
 
 ### Vad som varit svårt
-
+Det som var svår var testerna, jag hade svårt att testa meny klassen där testen höll bara på att ladda och tog aldrig slut. Det var 
+något jag var tvungen att tänka igenom. Jag hade också små buggar men det löste sig till slut.
 ### Beskriv lite olika lösningar du gjort
-
+Lösningar som jag har gjort var att skapa olika sorters felsökningar för att stoppa programmet från att krascha på grund av användaren. Jag såg till så att
+programmet förklarar till användaren vad som går fel så att användaren vet had hen gör för fel.
 ### Beskriv något som var besvärligt att få till
 
 ### Beskriv om du fått byta lösning och varför i sådana fall

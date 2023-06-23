@@ -26,15 +26,16 @@ public class MongoDb {
     }
 
     public Todo getTodoItemById(Integer id) { //hämtar ett todo objekt med ett specifikt id
-        Document filter = new Document("id", id);
-        FindIterable<Document> documents = this.collection.find(filter);
+        Document filter = new Document("id", id); //skapar ett filter
+        FindIterable<Document> documents = this.collection.find(filter); //hämtar ett todo objekt med ett specifikt id
         Document document = documents.first();
 
-        if (null != document) {
+        if (null != document) { //om todo objektet finns så skapar vi ett nytt todo objekt
+            //skapar ett nytt todo objekt med id, text och status
             Integer id1 = document.getInteger("id");
             String text = document.getString("text");
             Boolean isDone = document.getBoolean("done");
-            return new Todo(
+            return new Todo( //skapar ett nytt todo objekt
                     id1,
                     text,
                     isDone
@@ -45,31 +46,32 @@ public class MongoDb {
     }
 
     public List<Todo> getAllTodoItems() { //hämtar alla todo objekt
-        List<Todo> todos = new ArrayList<>();
+        List<Todo> todos = new ArrayList<>(); //skapar en lista med todo objekt
 
-        FindIterable<Document> documents = this.collection.find();
-        try (MongoCursor<Document> cursor = documents.iterator()) {
+        FindIterable<Document> documents = this.collection.find(); //hämtar alla todo objekt
+        try (MongoCursor<Document> cursor = documents.iterator()) { //loopar igenom alla todo objekt
             while (cursor.hasNext()) {
                 Document document = cursor.next();
                 Todo todo = Todo.fromDoc(document);
-                todos.add(todo);
+                todos.add(todo); //lägger till todo objektet i listan
             }
         }
 
-        return todos;
+        return todos; //returnerar listan med todo objekt
     }
 
 
-    public void updateTodoStatus(Integer id, boolean isDone) {
-        Document filter = new Document("id", id);
+    public void updateTodoStatus(Integer id, boolean isDone) { // uppdaterar status för ett todo uppdrag
+        Document filter = new Document("id", id); //hittar todo objektet med id
+        //uppdaterar statusen
         Document update = new Document("$set", new Document("done", isDone));
         collection.updateOne(filter, update);
     }
 
-    public void updateTodoText(Integer id, String newText) {
-        Document filter = new Document("id", id);
+    public void updateTodoText(Integer id, String newText) { // uppdaterar text för ett todo uppdrag
+        Document filter = new Document("id", id);  //hittar todo objektet med id
         Document update = new Document("$set", new Document("text", newText));
-        collection.updateOne(filter, update);
+        collection.updateOne(filter, update); //uppdaterar texten
     }
 
 

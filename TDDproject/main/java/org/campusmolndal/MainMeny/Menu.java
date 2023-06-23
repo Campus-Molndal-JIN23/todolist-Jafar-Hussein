@@ -61,11 +61,12 @@ public class Menu {
 
 
 
-    private void createTodoItem() {
+    private void createTodoItem() { //metod som skapar en task
         int id;
         Todo todo;
 
-        do {
+        do { //do-while loop som körs så länge id inte är ett unikt id
+            //frågar användaren efter ett id och kollar om det är ett unikt id
             System.out.print("Ange task ID: ");
             id = inputHandler.getIntInput();
             if (!Todo. isTodoIdDuplicate(id)) {
@@ -74,12 +75,12 @@ public class Menu {
                 System.out.println("Task with ID " + id + " already exists.");
             }
         } while (!Todo. isTodoIdDuplicate(id) || dbFacade.getTodoItemById(id) != null);
-
+        //frågar användaren efter titel och status
         System.out.print("Ange task Titel: ");
         String title = inputHandler.getStringInput();
         System.out.print("Är task Klart? (true/false): ");
         boolean isDone = inputHandler.getTaskStatusInput();
-
+    //skapar ett nytt todo objekt och lägger till det i databasen
         todo = new Todo(id, title, isDone);
         dbFacade.createTodoItem(todo);
 
@@ -94,7 +95,7 @@ public class Menu {
 
         Todo todo = dbFacade.getTodoItemById(id);
 
-        if (todo != null) {
+        if (todo != null) { //kollar om tasken finns
             System.out.println("task hittat:");
             System.out.println(todo);
         } else {
@@ -104,43 +105,46 @@ public class Menu {
 
     private void viewAllTodoItems() { //metod som visar alla task
         System.out.println("Alla task:");
+        //hämtar alla task från databasen och lägger till dem i en lista
         List<Todo> todos = dbFacade.getAllTodoItems();
 
-        if (todos.isEmpty()) {
+        if (todos.isEmpty()) { //kollar om listan är tom så skrivs det ut att det inte finns några task
             System.out.println("Inga task hittades.");
         } else {
-            for (Todo todo : todos) {
+            for (Todo todo : todos) { //for loop som skriver ut alla task
                 System.out.println(todo);
             }
         }
     }
 
     private void updateTodoTaskStatus() { //metod som uppdaterar en task
+        //frågar användaren efter id och status
         viewAllTodoItems();
         System.out.print("Ange task ID: ");
         Integer id = inputHandler.getIntInput();
         System.out.print("Är task Klart? (true/false): ");
         boolean isDone = inputHandler.getTaskStatusInput();
-
+        //uppdaterar tasken i databasen
         dbFacade.updateTodoStatus(id, isDone);
         System.out.println("Task uppdaterat.");
     }
-    private void updateTodoTaskText() {
-        viewAllTodoItems();
+    private void updateTodoTaskText() { //metod som uppdaterar en tasks text
+        viewAllTodoItems(); //visar alla task med deras id sen så frågar den efter id och ny text
         System.out.print("Ange task ID: ");
         Integer id = inputHandler.getIntInput();
         System.out.print("Ange ny text: ");
         String newText = inputHandler.getStringInput();
-
+        //uppdaterar tasken i databasen
         dbFacade.updateTodoText(id, newText);
         System.out.println("Task text uppdaterad.");
     }
 
-    private void deleteTodoItem() {
+    private void deleteTodoItem() { //metod som tar bort en task
+        //frågar användaren efter id och tar bort tasken från databasen
         viewAllTodoItems();
         System.out.print("Ange task ID: ");
         Integer id = inputHandler.getIntInput();
-
+        //tar bort tasken från databasen
         dbFacade.deleteTodoItemById(id);
         System.out.println("Task borttaget.");
     }
