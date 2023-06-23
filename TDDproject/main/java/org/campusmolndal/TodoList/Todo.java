@@ -27,6 +27,9 @@ public class Todo {
         }
         this.id = userChoiceId;
     }
+    public static boolean isTodoIdDuplicate(int id) {
+        return id > 0;
+    }
 
     // Hämtar texten för uppgiften
     public String getText() {

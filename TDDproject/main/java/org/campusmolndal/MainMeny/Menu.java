@@ -57,19 +57,32 @@ public class Menu {
         inputHandler.closeScanner();
     }
 
-    private void createTodoItem() { //metod som skapar en ny task
-        System.out.print("Ange task ID: ");
-        int id = inputHandler.getIntInput();
+    private void createTodoItem() {
+        int id;
+        Todo todo;
+
+        do {
+            System.out.print("Ange task ID: ");
+            id = inputHandler.getIntInput();
+            if (!Todo. isTodoIdDuplicate(id)) {
+                System.out.println("Invalid ID: ID must be a positive non-zero value");
+            } else if (dbFacade.getTodoItemById(id) != null) {
+                System.out.println("Task with ID " + id + " already exists.");
+            }
+        } while (!Todo. isTodoIdDuplicate(id) || dbFacade.getTodoItemById(id) != null);
+
         System.out.print("Ange task Titel: ");
         String title = inputHandler.getStringInput();
         System.out.print("Är task Klart? (true/false): ");
         boolean isDone = inputHandler.getTaskStatusInput();
 
-        Todo todo = new Todo(id, title, isDone);
+        todo = new Todo(id, title, isDone);
         dbFacade.createTodoItem(todo);
 
-        System.out.println("task skapat.");
+        System.out.println("Task skapat.");
     }
+
+
 
     private void viewTodoItemById() { //metod som visar en task via ID
         System.out.print("Ange task ID: ");
