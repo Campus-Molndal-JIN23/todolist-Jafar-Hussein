@@ -2,7 +2,6 @@ package org.campusmolndal.Database;
 
 import com.mongodb.client.*;
 import org.bson.Document;
-import org.bson.conversions.Bson;
 import org.campusmolndal.TodoList.Todo;
 
 import java.util.ArrayList;
@@ -34,7 +33,7 @@ public class MongoDb {
         if (null != document) {
             Integer id1 = document.getInteger("id");
             String text = document.getString("text");
-            Boolean isDone = document.getBoolean("isDone");
+            Boolean isDone = document.getBoolean("done");
             return new Todo(
                     id1,
                     text,
@@ -63,7 +62,7 @@ public class MongoDb {
 
     public void updateTodo(Integer id, String newText, boolean isDone) { //uppdaterar ett todo objekt, dvs ändrar texten och om den är klar eller inte
         Document filter = new Document("id", id);
-        Document update = new Document("$set", new Document("text", newText).append("isDone", isDone));
+        Document update = new Document("$set", new Document("text", newText).append("done", isDone));
         collection.updateOne(filter, update);
     }
 
