@@ -84,7 +84,7 @@ public class TodoTest {
     }
     @Test
     public void testIsTodoIdDuplicate() { // Testar om id är unikt
-        // Skapar tre objekt med olika id
+        // Skapar tre objekt med olika id för att testa om id är unikt
         Todo todo1 = new Todo(1, "Task 1", false);
         Todo todo2 = new Todo(2, "Task 2", true);
         Todo todo3 = new Todo(1, "Task 3", false);
