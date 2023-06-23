@@ -58,7 +58,7 @@ public class TodoTest {
         Todo todo = new Todo(1, "Sample Title", false);
 
         // Sätter en ny titel med setTitle-metoden och kontrollerar att den nya titeln är korrekt
-        todo.setTitle(newTitle);
+        todo.setText(newTitle);
 
         assertEquals(newTitle, todo.getText());
     }

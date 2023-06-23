@@ -27,7 +27,7 @@ public class Todo {
         }
         this.id = userChoiceId;
     }
-    public static boolean isTodoIdDuplicate(int id) {
+    public static boolean isTodoIdDuplicate(Integer id) {
         return id > 0;
     }
 
@@ -37,12 +37,12 @@ public class Todo {
     }
 
     // Sätter titeln för uppgiften
-    public void setTitle(String userTitleChoice) {
-        Objects.requireNonNull(userTitleChoice, "Title cannot be null");
-        if (userTitleChoice.isBlank()) {
+    public void setText(String userTextChoice) {
+        Objects.requireNonNull(userTextChoice, "Title cannot be null");
+        if (userTextChoice.isBlank()) { // om titeln är tom så kastas ett undantag
             throw new IllegalArgumentException("Title cannot be empty");
         }
-        this.text = userTitleChoice;
+        this.text = userTextChoice;
     }
 
     // Hämtar statusen för uppgiften
