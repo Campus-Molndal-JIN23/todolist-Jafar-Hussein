@@ -1,4 +1,4 @@
-package DatabasTest;
+package campusmolndal.DatabasTest;
 
 import org.campusmolndal.Database.MongoDb;
 import org.campusmolndal.Database.MongoDbFacade;

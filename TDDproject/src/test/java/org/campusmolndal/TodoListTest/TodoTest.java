@@ -1,4 +1,4 @@
-package TodoListTest;
+package campusmolndal.TodoListTest;
 
 import org.bson.Document;
 import org.campusmolndal.TodoList.Todo;

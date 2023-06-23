@@ -1,4 +1,4 @@
-package MenyTest;
+package campusmolndal.MenyTest;
 import org.campusmolndal.MainMeny.Menu;
 import org.campusmolndal.InputHanterare.InputHandler;
 import org.junit.jupiter.api.AfterEach;
