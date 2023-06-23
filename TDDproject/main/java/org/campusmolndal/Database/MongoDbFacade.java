@@ -23,8 +23,11 @@ public class MongoDbFacade {
         return mongoDb.getAllTodoItems();
     }
 
-    public void updateTodo(Integer id, String newTitle, boolean isDone) { //uppdaterar ett todo objekt
-        mongoDb.updateTodo(id,newTitle, isDone);
+    public void updateTodoStatus(Integer id,  boolean isDone) { //uppdaterar ett todo objekt
+        mongoDb.updateTodoStatus(id, isDone);
+    }
+    public void updateTodoText(Integer id, String text) { //uppdaterar ett todo objekt
+        mongoDb.updateTodoText(id, text);
     }
 
     public void deleteTodoItemById(Integer id) { //tar bort ett todo objekt med ett specifikt id

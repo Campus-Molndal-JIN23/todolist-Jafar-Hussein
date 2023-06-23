@@ -60,11 +60,18 @@ public class MongoDb {
     }
 
 
-    public void updateTodo(Integer id, String newText, boolean isDone) { //uppdaterar ett todo objekt, dvs ändrar texten och om den är klar eller inte
+    public void updateTodoStatus(Integer id, boolean isDone) {
         Document filter = new Document("id", id);
-        Document update = new Document("$set", new Document("text", newText).append("done", isDone));
+        Document update = new Document("$set", new Document("done", isDone));
         collection.updateOne(filter, update);
     }
+
+    public void updateTodoText(Integer id, String newText) {
+        Document filter = new Document("id", id);
+        Document update = new Document("$set", new Document("text", newText));
+        collection.updateOne(filter, update);
+    }
+
 
 
     public void deleteTodoItemById(Integer id) { //tar bort ett todo objekt med ett specifikt id

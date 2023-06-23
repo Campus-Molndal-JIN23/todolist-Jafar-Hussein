@@ -14,7 +14,7 @@ import static org.mockito.Mockito.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MongoDbTest {
+public class MongoDbFacadeTest {
     @Mock
     private MongoDb mongoDb;
 
@@ -69,16 +69,28 @@ public class MongoDbTest {
     }
 
     @Test
-    public void testUpdateTodo() {
-        int id = 1;
-        String newTitle = "Nytt task Titel";
+    public void testUpdateTodoStatus() {
+        Integer id = 1;
         boolean isDone = true;
 
-        // Kontrollerar att updateTodo-metoden i mongoDb anropas en gång med rätt parametrar
-        mongoDbFacade.updateTodo(id, newTitle, isDone);
+        // Call the updateTodoStatus method in mongoDbFacade
+        mongoDbFacade.updateTodoStatus(id, isDone);
 
-        verify(mongoDb, times(1)).updateTodo(id, newTitle, isDone);
+        // Verify that the updateTodoStatus method in mongoDb is called once with the correct parameters
+        verify(mongoDb, times(1)).updateTodoStatus(id, isDone);
     }
+    @Test
+    public void testUpdateTodoText() {
+        Integer id = 1;
+        String newText = "New Text";
+
+        // Call the updateTodoText method in mongoDbFacade
+        mongoDbFacade.updateTodoText(id, newText);
+
+        // Verify that the updateTodoText method in mongoDb is called once with the correct parameters
+        verify(mongoDb, times(1)).updateTodoText(id, newText);
+    }
+
 
     @Test
     public void testDeleteTodoItemById() {
