@@ -8,6 +8,12 @@ public class Todo {
     private Integer id;
     private String text;
     private Boolean isDone;
+    public Todo() {
+        this.id = 0; // Sätt standardvärde för id
+        this.text = ""; // Sätt standardvärde för text
+        this.isDone = false; // Sätt standardvärde för isDone
+    }
+
 
     public Todo(Integer id, String text,  Boolean isDone) {
         this.id = id;
@@ -39,7 +45,7 @@ public class Todo {
     // Sätter titeln för uppgiften
     public void setText(String userTextChoice) { // sätter titeln för uppgiften
         Objects.requireNonNull(userTextChoice, "\n" +
-                "Titeln kan inte vara null");
+                "Texten kan inte vara null");
         if (userTextChoice.isBlank()) { // om titeln är tom så kastas ett undantag
             throw new IllegalArgumentException("Titeln får inte vara tom");
         }
@@ -53,7 +59,7 @@ public class Todo {
 
     // Sätter statusen för uppgiften
     public void setTaskStatus(Boolean isDone) { // sätter statusen för uppgiften
-        if (null == isDone) { // om statusen är null så kastas ett undantag
+        if (isDone == null) { // om statusen är null så kastas ett undantag
             throw new IllegalArgumentException("Status kan inte vara null"); // om statusen är null så kastas ett undantag
         }
         this.isDone = isDone;
