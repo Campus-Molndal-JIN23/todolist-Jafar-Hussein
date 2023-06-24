@@ -23,7 +23,7 @@ public class Todo {
     // Sätter ID för uppgiften
     public void setId(Integer userChoiceId) {
         if (userChoiceId <= 0) {
-            throw new IllegalArgumentException("ID must be a positive non-zero value"); // om id är mindre än 0 så kastas ett undantag
+            throw new IllegalArgumentException("ID måste vara ett positivt värde som inte är noll"); // om id är mindre än 0 så kastas ett undantag
         }
         this.id = userChoiceId;
     }
@@ -38,9 +38,10 @@ public class Todo {
 
     // Sätter titeln för uppgiften
     public void setText(String userTextChoice) { // sätter titeln för uppgiften
-        Objects.requireNonNull(userTextChoice, "Title cannot be null");
+        Objects.requireNonNull(userTextChoice, "\n" +
+                "Titeln kan inte vara null");
         if (userTextChoice.isBlank()) { // om titeln är tom så kastas ett undantag
-            throw new IllegalArgumentException("Title cannot be empty");
+            throw new IllegalArgumentException("Titeln får inte vara tom");
         }
         this.text = userTextChoice; // annars sätts titeln
     }
@@ -53,7 +54,7 @@ public class Todo {
     // Sätter statusen för uppgiften
     public void setTaskStatus(Boolean isDone) { // sätter statusen för uppgiften
         if (null == isDone) { // om statusen är null så kastas ett undantag
-            throw new IllegalArgumentException("isDone cannot be null"); // om statusen är null så kastas ett undantag
+            throw new IllegalArgumentException("Status kan inte vara null"); // om statusen är null så kastas ett undantag
         }
         this.isDone = isDone;
     }
