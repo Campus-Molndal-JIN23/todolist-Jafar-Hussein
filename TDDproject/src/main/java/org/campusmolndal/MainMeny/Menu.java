@@ -95,7 +95,7 @@ public class Menu {
 
         Todo todo = dbFacade.getTodoItemById(id);
 
-        if (todo != null) { //kollar om task finns
+        if (todo != null) { //kollar om tasken finns
             System.out.println("task hittat:");
             System.out.println(todo);
         } else {
@@ -124,7 +124,7 @@ public class Menu {
         Integer id = inputHandler.getIntInput();
         System.out.print("Är task Klart? (true/false): ");
         boolean isDone = inputHandler.getTaskStatusInput();
-        //uppdaterar task i databasen
+        //uppdaterar tasken i databasen
         dbFacade.updateTodoStatus(id, isDone);
         System.out.println("Task uppdaterat.");
     }
@@ -134,17 +134,17 @@ public class Menu {
         Integer id = inputHandler.getIntInput();
         System.out.print("Ange ny text: ");
         String newText = inputHandler.getStringInput();
-        //uppdaterar task i databasen
+        //uppdaterar tasken i databasen
         dbFacade.updateTodoText(id, newText);
         System.out.println("Task text uppdaterad.");
     }
 
     private void deleteTodoItem() { //metod som tar bort en task
-        //frågar användaren efter id och tar bort task från databasen
+        //frågar användaren efter id och tar bort tasken från databasen
         viewAllTodoItems();
         System.out.print("Ange task ID: ");
         Integer id = inputHandler.getIntInput();
-        //tar bort task från databasen
+        //tar bort tasken från databasen
         dbFacade.deleteTodoItemById(id);
         System.out.println("Task borttaget.");
     }

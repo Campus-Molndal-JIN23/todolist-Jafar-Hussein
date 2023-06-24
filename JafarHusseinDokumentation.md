@@ -48,26 +48,18 @@ något jag var tvungen att tänka igenom. Jag hade också små buggar men det l�
 ### Beskriv lite olika lösningar du gjort
 Lösningar som jag har gjort var att skapa olika sorters felsökningar för att stoppa programmet från att krascha på grund av användaren. Jag såg till så att
 programmet förklarar till användaren vad som går fel så att användaren vet had hen gör för fel.
-Sedan implementerade jag en funktion som ser till så att man inte kan duplicera id, dvs att om det redan finns id 1 då får det inte finnas en annan med id 1 tills den första har tagits bort.
-
-Jag använde mig av json för att konvertera todo listan till json och sedan sparar jag den till databasen.
 ### Beskriv något som var besvärligt att få till
-Som sagt så var testerna jobbiga att få till men, jag hade massa med problem där testerna misslyckades men till sluta så fixade 
-jag det och det gick bra i slutet.
-
+Som sagt så var testerna jobbiga att få till men, jag hade massa med problem där testerna misslyckades men till sluta så fixade jag det och det gick bra i slutet.
 ### Beskriv om du fått byta lösning och varför i sådana fall
-Jag fick byta produktionskod som jag redan har skrivit, och det var för att unit testerna skulle bli godkända
-vilket till slut blev klar. Det var många klasser som jag fick byta lösningar på för att få testerna att bli godkända.
-
+Jag fick byta produktionskod som jag redan har skrivit, och det var för att unit testerna skulle bli godkända vilket till slut blev klar. Det var många klasser som jag fick byta lösningar på för att få testerna att bli godkända.
 ## Reflektion & Slutsatser
-Det som gick bra var att jag fick hjälp från Fredrik som kollade på min kod för att verifiera på att projektet har grundläggande funktioner,
-när han kollade på koden så fick jag feedback på att det var många buggar, det hjälpte mig att undvika problem samt hitta på lösningar för att fixa det.
+
+### Vad gick bra
+Det som gick bra var att jag fick hjälp från Fredrik som kollade på min kod för att verifiera på att projektet har grundläggande funktioner, när han kollade på koden så fick jag feedback på att det var många buggar, det hjälpte mig att undvika problem samt hitta på lösningar för att fixa det.
 ### Vad gick dåligt
-Det var massa med bugs som sagt, t.ex. Dålig implementerad produktions kod som gjorde så att testen in blev godkänd, detta tog tid att fixa men gick bra när jag faktiskt gjorde det.
-Men detta visar mig hur bra att testa sin kod verkligen är.
+Det var massa med bugs som sagt, t.ex. Dålig implementerad produktions kod som gjorde så att testen in blev godkänd, detta tog tid att fixa men gick bra när jag faktiskt gjorde det. Men detta visar mig hur bra att testa sin kod verkligen är.
 ### Vad har du lärt dig
-Som sagt så har detta projektet hur det ser ut att göra unit testing för ett större projekt samt hur viktigt 
-det är att testa sin kod för att stoppa buggar. Även om det tar tid att fixa testerna först så sparar den tid i framtiden, då slipper vi sitta timmar för att fixa buggar.
+Som sagt så har detta projektet hur det ser ut att göra unit testing för ett större projekt samt hur viktigt det är att testa sin kod för att stoppa buggar. Även om det tar tid att fixa testerna först så sparar den tid i framtiden, då slipper vi sitta timmar för att fixa buggar.
 ### Vad hade ni gjort annorlunda om ni gjort om projektet
 
 ### Vilka möjligheter ser du med de kunskaper du fått under kursen.
