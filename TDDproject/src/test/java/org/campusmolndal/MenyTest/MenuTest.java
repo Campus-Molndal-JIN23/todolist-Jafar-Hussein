@@ -34,7 +34,7 @@ public class MenuTest {
         System.setOut(originalOut);
     }
 
-    @Test
+   @Test
     public void testRun() {
         // Simulerar användarinput av "0" för att avsluta menyn
         when(inputHandler.getIntInput()).thenReturn(0);
@@ -42,11 +42,12 @@ public class MenuTest {
         // Förväntad utdata
         String expected = """
                 ==== ATT GÖRA-LISTA MENY ====
-                1. Skapa Task
-                2. Visa Task via ID
-                3. Visa alla task
-                4. Uppdatera task status
-                5. Ta Bort task
+                1. Skapa uppgift
+                2. Visa uppgift via ID
+                3. Visa alla uppgifter
+                4. Uppdatera uppgift status
+                5. Uppdatera uppgift text
+                6. Ta Bort uppgift
                 0. Avsluta
                 =============================
                 Välj ett alternativ: Avslutar...""";
@@ -67,7 +68,6 @@ public class MenuTest {
             assertEquals(expectedLines[i], actualLines[i]);
         }
     }
-
 
     private String getOutput() {
         return outputStream.toString();

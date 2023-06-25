@@ -94,35 +94,35 @@ public class TodoTest {
         assertNotEquals(expectedId, todo2.getId()); // Kontrollerar att id-värdet inte är en duplikat
         assertEquals(expectedId, todo3.getId()); // Kontrollerar att id-värdet är en duplikat
     }
-    @Test
+   @Test
     public void testToDoc() {
         Integer id = 1;
-        String title = "Sample Title";
+        String text = "Sample Title";
         Boolean isDone = false;
-        Todo todo = new Todo(id, title, isDone);
+        Todo todo = new Todo(id, text, isDone);
 
         // Kontrollerar att toDoc-metoden returnerar en korrekt Document-objekt med rätt fältvärden
         Document document = todo.toDoc();
 
         assertEquals(id, document.getInteger("id"));
-        assertEquals(title, document.getString("title"));
-        assertEquals(isDone, document.getBoolean("isDone"));
+        assertEquals(text, document.getString("text"));
+        assertEquals(isDone, document.getBoolean("done"));
     }
 
     @Test
     public void testFromDoc() {
         Integer id = 1;
-        String title = "Sample Title";
+        String text = "Sample Title";
         Boolean isDone = false;
         Document document = new Document("id", id)
-                .append("title", title)
-                .append("isDone", isDone);
+                .append("text", text)
+                .append("done", isDone);
 
         // Kontrollerar att fromDoc-metoden skapar en ny Todo-objekt med rätt värden från det givna Document-objektet
         Todo todo = Todo.fromDoc(document);
 
         assertEquals(id, todo.getId());
-        assertEquals(title, todo.getText());
+        assertEquals(text, todo.getText());
         assertEquals(isDone, todo.getTaskStatus());
     }
 }
