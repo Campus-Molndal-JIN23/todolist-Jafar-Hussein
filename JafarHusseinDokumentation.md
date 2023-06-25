@@ -53,7 +53,6 @@ Som sagt så var testerna jobbiga att få till men, jag hade massa med problem d
 ### Beskriv om du fått byta lösning och varför i sådana fall
 Jag fick byta produktionskod som jag redan har skrivit, och det var för att unit testerna skulle bli godkända vilket till slut blev klar. Det var många klasser som jag fick byta lösningar på för att få testerna att bli godkända.
 ## Reflektion & Slutsatser
-
 ### Vad gick bra
 Det som gick bra var att jag fick hjälp från Fredrik som kollade på min kod för att verifiera på att projektet har grundläggande funktioner, när han kollade på koden så fick jag feedback på att det var många buggar, det hjälpte mig att undvika problem samt hitta på lösningar för att fixa det.
 ### Vad gick dåligt
@@ -61,5 +60,7 @@ Det var massa med bugs som sagt, t.ex. Dålig implementerad produktions kod som 
 ### Vad har du lärt dig
 Som sagt så har detta projektet hur det ser ut att göra unit testing för ett större projekt samt hur viktigt det är att testa sin kod för att stoppa buggar. Även om det tar tid att fixa testerna först så sparar den tid i framtiden, då slipper vi sitta timmar för att fixa buggar.
 ### Vad hade ni gjort annorlunda om ni gjort om projektet
-
+I helhet så ser jag inget som jag skulle gjort annorlunda, jag är nöjd med resultatet och jag har lärt mig mycket från detta projektet gällande unit testing.
 ### Vilka möjligheter ser du med de kunskaper du fått under kursen.
+Möjligheterna jag ser är att jag kan skapa större projekt med unit testing, detta hjälper mig att förstå hur jag ska skriva min kod och hur jag ska testa den.
+Det hjälper mig också skriva en robust kod som inte kraschar på grund av användaren eller på grund av buggar samt att jag kan skapa en kod som är lätt att förstå för andra utvecklare.
