@@ -54,7 +54,7 @@ Som sagt så var testerna jobbiga att få till men, jag hade massa med problem d
 Jag fick byta produktionskod som jag redan har skrivit, och det var för att unit testerna skulle bli godkända vilket till slut blev klar. Det var många klasser som jag fick byta lösningar på för att få testerna att bli godkända.
 ## Reflektion & Slutsatser
 ### Vad gick bra
-Det som gick bra var att jag fick hjälp från Fredrik som kollade på min kod för att verifiera på att projektet har grundläggande funktioner, när han kollade på koden så fick jag feedback på att det var många buggar, det hjälpte mig att undvika problem samt hitta på lösningar för att fixa det.
+Det som gick bra var att jag fick hjälp från Fredrik och Andrea som kollade på min kod för att verifiera på att projektet har grundläggande funktioner, när dem kollade på koden så fick jag feedback på att det var många buggar, det hjälpte mig att undvika problem samt hitta på lösningar för att fixa det.
 ### Vad gick dåligt
 Det var massa med bugs som sagt, t.ex. Dålig implementerad produktions kod som gjorde så att testen in blev godkänd, detta tog tid att fixa men gick bra när jag faktiskt gjorde det. Men detta visar mig hur bra att testa sin kod verkligen är.
 ### Vad har du lärt dig
