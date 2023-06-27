@@ -40,9 +40,6 @@ Json version 20230227 is used to convert a document to JSON format. It is used t
 
 ## License 
 🏆 MIT License
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
 ## Features
 
