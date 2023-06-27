@@ -4,7 +4,7 @@
 ## Link to Repository
 [Jafars repo](https://github.com/Campus-Molndal-JIN23/todolist-Jafar-Hussein)
 ## Description
-The motivation behind this project was to create a simple and user-friendly todo application. By building this application, I wanted to explore and understand the process of developing a web application from scratch.
+The motivation behind this project was to create a simple and user-friendly todo application. By building this application, I wanted to explore and understand the process of developing an application from scratch.
 
 The project is a todo application that helps users organize and manage their tasks. Users can create, edit, and mark tasks as completed. The application provides a clear overview of the remaining and completed tasks.
 
