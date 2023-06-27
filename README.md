@@ -6,7 +6,7 @@
 ## Description
 The motivation behind this project was to create a simple and user-friendly todo application. By building this application, I wanted to explore and understand the process of developing an application from scratch.
 
-The project is a todo application that helps users organize and manage their tasks. Users can create, edit, and mark tasks as completed. The application provides a clear overview of the remaining and completed tasks.
+The project is a todo application that helps users organize and manage their tasks. Users can create, edit, delete and mark tasks as completed. The application provides a clear overview of the remaining and completed tasks.
 
 By building this project, I have learned concepts and techniques in Java programming. I have gained experience in developing backend functionality and working with Java frameworks to create a robust and efficient application.
 ## Installation
