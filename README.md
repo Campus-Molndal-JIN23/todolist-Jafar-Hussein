@@ -25,8 +25,8 @@ By building this project, I have learned concepts and techniques in Java program
 ## Credits
 
 ## List of people who have helped me
-* [Andrea]([https://github.com/person1](https://github.com/DreaTR))
-* [Fredrik]([https://github.com/person1](https://github.com/Fringston))
+ [Andrea]([https://github.com/person1](https://github.com/DreaTR))
+ [Fredrik]([https://github.com/person1](https://github.com/Fringston))
 
 These individuals have helped me review my task to determine if the program is approved. They have assisted me in identifying various bugs that I have fixed.
 
