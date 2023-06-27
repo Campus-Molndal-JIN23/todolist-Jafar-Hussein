@@ -46,7 +46,7 @@ Json version 20230227 is used to convert a document to JSON format. It is used t
 
 ## Features
 
-CRUD operations for a todo list.
+Features that has been used for this project is CRUD operations for a todo list.
 
 ## Tests
 
