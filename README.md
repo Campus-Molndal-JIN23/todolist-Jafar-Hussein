@@ -12,7 +12,7 @@ By building this project, I have learned concepts and techniques in Java program
 ## Installation
 + Download MongoDB on your computer.[Link here](https://www.mongodb.com/try/download/shell)
 + Download MongoDB Compass. [Link here](https://www.mongodb.com/try/download/compass)
-+ Download/clone this project.
++ Download/clone this project. [Link here](https://github.com/Campus-Molndal-JIN23/todolist-Jafar-Hussein)
 + You may encounter an issue where you can't start the program. Check out this [länk till contentRootSteg](ContentRootSteg)
 + efter du har fixat det gå till main klassen och starta programmet.
 
