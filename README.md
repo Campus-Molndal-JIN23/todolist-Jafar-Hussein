@@ -10,7 +10,7 @@ The project is a todo application that helps users organize and manage their tas
 
 By building this project, I have learned concepts and techniques in Java programming. I have gained experience in developing backend functionality and working with Java frameworks to create a robust and efficient application.
 ## Installation
-+ Download MongoDB on your computer.[Link here](https://www.mongodb.com/try/download/shell)
++ Download MongoDB on your computer.[Link here]([https://www.mongodb.com/try/download/shell](https://www.mongodb.com/try/download/community))
 + Download MongoDB Compass. [Link here](https://www.mongodb.com/try/download/compass)
 + Download/clone this project. [Link here](https://github.com/Campus-Molndal-JIN23/todolist-Jafar-Hussein)
 + You may encounter an issue where you can't start the program. Check out this [länk till contentRootSteg](ContentRootSteg)
