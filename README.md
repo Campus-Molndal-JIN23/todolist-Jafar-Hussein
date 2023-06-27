@@ -10,8 +10,8 @@ The project is a todo application that helps users organize and manage their tas
 
 By building this project, I have learned concepts and techniques in Java programming. I have gained experience in developing backend functionality and working with Java frameworks to create a robust and efficient application.
 ## Installation
-+ Download MongoDB on your computer.
-+ Download MongoDB Compass.
++ Download MongoDB on your computer.[Link here](https://www.mongodb.com/try/download/shell)
++ Download MongoDB Compass. [Link here](https://www.mongodb.com/try/download/compass)
 + Download/clone this project.
 + You may encounter an issue where you can't start the program. Check out this [länk till contentRootSteg](ContentRootSteg)
 + efter du har fixat det gå till main klassen och starta programmet.
